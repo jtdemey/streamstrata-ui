@@ -7,15 +7,17 @@
 </script>
 
 <header>
-  <h1
-    style="
-      background: {currentTheme.secondary};
-      border: 1px solid {currentTheme.highlight};
-      color: {currentTheme.highlight}
-    "
-  >
-    Lamina<br />Llama
-  </h1>
+  <a href="/">
+    <h1
+      style="
+        background: {currentTheme.secondary};
+        border: 1px solid {currentTheme.highlight};
+        color: {currentTheme.highlight}
+      "
+    >
+      Lamina<br />Llama
+    </h1>
+  </a>
   <div id="right">
     <h2
       style="
@@ -64,6 +66,10 @@
   header {
     display: flex;
     padding: 0 2rem;
+  }
+  
+  a {
+    text-decoration: none;
   }
 
   h1 {
@@ -114,7 +120,6 @@
 
   ul > a {
     color: inherit;
-    text-decoration: none;
   }
 
   li {

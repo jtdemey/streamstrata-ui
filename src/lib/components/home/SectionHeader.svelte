@@ -25,6 +25,7 @@
 
 <style>
   section {
+    display: flex;
     width: calc(100% - 4rem);
     margin: 2rem;
   }
@@ -33,6 +34,7 @@
     width: fit-content;
     margin: 0;
     padding: 1rem;
+    font-size: 1.3rem;
   }
 
   article {
