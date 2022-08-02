@@ -3,26 +3,29 @@
 </script>
 
 <script type="ts">
-  import type { ITheme } from "$lib/data/themes";
-  import { Links } from "$lib/data/links";
+  import type { ITheme } from "$lib/data/Themes";
+  import { Links } from "$lib/data/Links";
+  import { SectionText } from "$lib/data/home/SectionText";
   import { selectedTheme } from "$lib/stores/UIStores";
   import { getTheme } from "$lib/utils/ThemeUtils";
   import HomeLayout from "$lib/components/home/HomeLayout.svelte";
-  import LinkButton from "$lib/components/common/LinkButton.svelte";
   import SectionHeader from "$lib/components/home/SectionHeader.svelte";
+  import ViewLinkCard from "$lib/components/home/ViewLinkCard.svelte";
 
   const currentTheme: ITheme = getTheme($selectedTheme);
 </script>
 
 <HomeLayout>
-  <SectionHeader {currentTheme} title="Borders" />
-  <SectionHeader {currentTheme} title="Frames" />
-  <SectionHeader {currentTheme} title="Borders" />
-  <ul>
-    {#each Links as link}
-      <LinkButton href={link.href} text={link.text} />
-    {/each}
-  </ul>
+  {#each SectionText as sectionText, i}
+    <SectionHeader {currentTheme} {...sectionText} />
+    <ul>
+      {#if Links[i]}
+        {#each Links[i] as link}
+          <ViewLinkCard {...link} />
+        {/each}
+      {/if}
+    </ul>
+  {/each}
 </HomeLayout>
 
 <style>

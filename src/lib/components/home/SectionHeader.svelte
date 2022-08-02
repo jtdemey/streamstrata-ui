@@ -1,10 +1,10 @@
 <script type="ts">
-  import type { ITheme } from "$lib/data/themes";
+  import type { ITheme } from "$lib/data/Themes";
   import { adjustLightness, adjustSaturation } from "$lib/utils/ColorUtils";
   import { getTheme } from "$lib/utils/ThemeUtils";
 
   export let currentTheme: ITheme = getTheme("Sunset Cream");
-  export let title: string = "Title";
+  export let header: string = "Title";
   export let body: string = "...";
 </script>
 
@@ -14,7 +14,7 @@
       background: {currentTheme.quaternary};
       color: {adjustLightness(currentTheme.primary, -8)};"
   >
-    {title}
+    {header}
   </h3>
   <article style="
     background: {currentTheme.tertiary};
@@ -38,6 +38,8 @@
   }
 
   article {
+    height: 1rem;
     padding: 1rem;
+    transform: translateY(0.75rem);
   }
 </style>

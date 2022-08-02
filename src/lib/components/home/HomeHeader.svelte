@@ -1,5 +1,5 @@
 <script type="ts">
-  import type { ITheme } from "$lib/data/themes";
+  import type { ITheme } from "$lib/data/Themes";
   import { adjustLightness } from "$lib/utils/ColorUtils";
   import { getTheme } from "$lib/utils/ThemeUtils";
 
