@@ -15,10 +15,16 @@ const genLink = (
 export const Links: ILink[][] = [
   [
     genLink(
-      "/overlays/testview",
+      "/create/border",
       "A simple border",
       "/placeholder.webp",
       "Simple Border"
+    ),
+    genLink(
+      "/create/testview",
+      "A sandbox",
+      "/placeholder.webp",
+      "Test View"
     )
   ]
 ];

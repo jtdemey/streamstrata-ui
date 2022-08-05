@@ -7,7 +7,7 @@
   export let width: number = 192;
 </script>
 
-<div style="background: {color};">
+<div style="height: {height}px; background: {color};">
   <img {alt} src={imgSrc} {width} {height} />
 </div>
 
@@ -15,5 +15,10 @@
   div {
     min-width: 192px;
     min-height: 108px;
+  }
+  
+  img {
+    margin: 0;
+    padding: 0;
   }
 </style>

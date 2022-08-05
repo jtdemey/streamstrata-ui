@@ -12,10 +12,23 @@
 </script>
 
 <a {href} style="color: {adjustLightness(currentTheme.primary, -12)}">
-  <section style="background: {currentTheme.highlight};">
-    <DeferredImage alt={imgAlt} {imgSrc} width={192} height={108} />
-    <span>{text}</span>
+  <section>
+    <DeferredImage
+      alt={imgAlt}
+      color={currentTheme.quaternary}
+      {imgSrc}
+      width={192}
+      height={108}
+    />
   </section>
+  <div>
+    <span
+      style="background: {currentTheme.secondary}; border: 1px solid {currentTheme.highlight}; color: {adjustLightness(
+        currentTheme.highlight,
+        10
+      )};">{text}</span
+    >
+  </div>
 </a>
 
 <style>
@@ -27,11 +40,19 @@
     display: flex;
     flex-flow: column;
     margin-left: 1rem;
-    padding: 0.35rem;
   }
-  
+
+  div {
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+  }
+
   span {
-    padding-top: 0.2rem;
+    min-width: 50%;
+    margin-top: 2px;
+    padding: 0 0.4rem 0.2rem;
+    border-radius: 0 0 1rem 1rem;
     font-size: 1.1rem;
     text-align: center;
   }

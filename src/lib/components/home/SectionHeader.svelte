@@ -34,12 +34,14 @@
     width: fit-content;
     margin: 0;
     padding: 1rem;
+    border-radius: 1rem 1rem 0 1rem;
     font-size: 1.3rem;
   }
 
   article {
     height: 1rem;
     padding: 1rem;
+    border-radius: 0 1rem 1rem 0;
     transform: translateY(0.75rem);
   }
 </style>

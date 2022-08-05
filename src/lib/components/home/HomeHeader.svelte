@@ -38,7 +38,7 @@
       <ul
         style="background: {currentTheme.tertiary}; color: {adjustLightness(
           currentTheme.primary,
-          -16
+          -8
         )};"
       >
         <a href="/">
@@ -78,6 +78,7 @@
     padding: 0.5rem 1.5rem;
     text-shadow: 0px -6px hsl(205, 19%, 59%);
     background: hsl(205, 19%, 35%);
+    border-radius: 0 0 0 1rem;
     color: hsl(203, 45%, 90%);
     font-family: "Nunito", sans-serif;
     font-size: 5.05rem;
@@ -115,6 +116,7 @@
     height: calc(3rem + 2px);
     margin: 0;
     padding: 0;
+    border-radius: 0 0 1rem 0;
     list-style-type: none;
   }
 
