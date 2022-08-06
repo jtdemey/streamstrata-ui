@@ -50,7 +50,6 @@
 
   span {
     min-width: 50%;
-    margin-top: 2px;
     padding: 0 0.4rem 0.2rem;
     border-radius: 0 0 1rem 1rem;
     font-size: 1.1rem;
