@@ -3,4 +3,5 @@
   import ViewDesigner from "$lib/components/create/ViewDesigner.svelte";
 </script>
 
-<ViewDesigner viewParameters={TestViewParameters} />
+<ViewDesigner viewParameters={TestViewParameters}>
+</ViewDesigner>

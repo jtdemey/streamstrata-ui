@@ -9,27 +9,45 @@
   export let viewParameter: ViewParameter;
   export let currentTheme: ITheme;
 
+  const handleChange = (inputVal: string): void =>
+    viewParameter.store.set(inputVal);
+
   const isType = (paramType: ViewParameterTypes): boolean =>
     viewParameter && viewParameter.parameterType === paramType;
 </script>
 
-<div style="border: 1px solid {currentTheme.highlight};">
+<div style="border-left: 1px solid {currentTheme.highlight};">
   {#if isType(ViewParameterTypes.Color)}
-    <Colorpicker inputName={viewParameter.name} label={viewParameter.label} />
+    <Colorpicker
+      changeFunc={handleChange}
+      {currentTheme}
+      inputName={viewParameter.name}
+      label={viewParameter.label}
+    />
   {/if}
 
   {#if isType(ViewParameterTypes.Slider)}
-    <SliderInput inputName={viewParameter.name} label={viewParameter.label} />
+    <SliderInput
+      changeFunc={handleChange}
+      {currentTheme}
+      inputName={viewParameter.name}
+      label={viewParameter.label}
+    />
   {/if}
 
   {#if isType(ViewParameterTypes.TextInput)}
-    <TextInput inputName={viewParameter.name} label={viewParameter.label} />
+    <TextInput
+      changeFunc={handleChange}
+      {currentTheme}
+      inputName={viewParameter.name}
+      label={viewParameter.label}
+    />
   {/if}
 </div>
 
 <style>
   div {
-    margin: 1rem;
+    margin: 1rem 2.5rem 0 0;
     padding: 0.5rem 1rem;
   }
 </style>

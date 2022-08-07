@@ -1,5 +1,6 @@
 import type { ViewParameter } from "../types/ViewParameter";
 import type { ViewParameterTypes } from "../types/ViewParameterTypes";
+import { writable } from "svelte/store";
 
 const getInputNameFromLabel = (label: string): string =>
   label.replace(" ", "-").toLocaleLowerCase();
@@ -7,14 +8,15 @@ const getInputNameFromLabel = (label: string): string =>
 export const genViewParameter = (
   parameterType: ViewParameterTypes,
   label: string = "",
-  name: string = "parameter-input"
+  name: string = "parameter-input",
+  initialValue: any = ""
 ): ViewParameter => {
   const inputName: string = label === "" ? name : getInputNameFromLabel(label);
-  console.log(inputName)
   return {
     parameterType,
     label,
     name: inputName,
-    value: ""
+    store: writable(initialValue),
+    value: initialValue
   };
 };

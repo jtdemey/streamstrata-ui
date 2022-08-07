@@ -13,7 +13,10 @@
 
   const currentTheme: ITheme = getTheme($selectedTheme);
 
-  const paneYPos: Tweened<number> = tweened(-300, { duration: 210, easing: quintOut });
+  const paneYPos: Tweened<number> = tweened(-300, {
+    duration: 210,
+    easing: quintOut
+  });
 
   onMount(() => {
     $paneYPos = 0;
@@ -21,9 +24,11 @@
 </script>
 
 <section
+  on:click|stopPropagation
   out:fly={{ duration: 210, easing: quintOut, y: -10 }}
   style="left: {$paneYPos}px; background: {currentTheme.primary}; color: {currentTheme.highlight};"
 >
+  <a href="/"><h3>🠔 Back home</h3></a>
   <ul>
     {#each viewParameters as viewParameter}
       <li>
@@ -44,8 +49,20 @@
     box-shadow: 3px 0px 6px hsl(220, 6%, 9%);
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h3 {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
   ul {
     min-width: 14rem;
+    margin: 0 0 0 2.5rem;
+    padding: 0;
     list-style-type: none;
   }
 
