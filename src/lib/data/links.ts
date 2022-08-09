@@ -15,7 +15,7 @@ const genLink = (
 export const Links: ILink[][] = [
   [
     genLink(
-      "/create/border",
+      "/create/simpleborder",
       "A simple border",
       "/placeholder.webp",
       "Simple Border"

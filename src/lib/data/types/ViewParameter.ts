@@ -7,4 +7,5 @@ export interface ViewParameter {
   name: string;
   store: Writable<any>;
   value: string;
+  visible: boolean;
 }

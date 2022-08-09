@@ -63,6 +63,7 @@
   }
 
   input {
+    margin-top: 0.5rem;
     border: none;
     font-family: "Nunito", sans-serif;
     font-size: 1rem;
@@ -72,6 +73,7 @@
   #text-input {
     width: 40%;
     margin-top: 0.5rem;
+    padding: 0.25rem;
     border-radius: 0.5rem;
   }
 </style>

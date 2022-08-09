@@ -9,7 +9,8 @@ export const genViewParameter = (
   parameterType: ViewParameterTypes,
   label: string = "",
   name: string = "parameter-input",
-  initialValue: any = ""
+  initialValue: any = "",
+  visible: boolean = true
 ): ViewParameter => {
   const inputName: string = label === "" ? name : getInputNameFromLabel(label);
   return {
@@ -17,6 +18,7 @@ export const genViewParameter = (
     label,
     name: inputName,
     store: writable(initialValue),
-    value: initialValue
+    value: initialValue,
+    visible
   };
 };

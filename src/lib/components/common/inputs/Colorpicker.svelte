@@ -111,7 +111,7 @@
   #text-input {
     width: calc(80% - 0.4rem);
     margin-top: 0.5rem;
-    padding: 0.25rem 0.1rem;
+    padding: 0.25rem;
     border-radius: 0.5rem;
   }
 </style>

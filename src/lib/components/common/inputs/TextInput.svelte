@@ -33,6 +33,7 @@
 
   input {
     margin-top: 0.25rem;
+    padding: 0.25rem;
     border: none;
     border-radius: 0.5rem;
     font-family: "Nunito", sans-serif;
