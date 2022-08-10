@@ -1,6 +1,7 @@
 <script type="ts">
   import type { ITheme } from "$lib/data/Themes";
-  import { onMount } from "svelte";
+  import type { Writable } from "svelte/store";
+  import { onDestroy, onMount } from "svelte";
   import { adjustLightness } from "$lib/utils/ColorUtils";
 
   export let changeFunc: Function = () => false;
@@ -10,6 +11,7 @@
   export let min: number = 0;
   export let max: number = 50;
   export let maxTextLength: number = 2;
+  export let valueStore: Writable<number>;
 
   let sliderValue: number = 5;
   let textValue: string = "";
@@ -17,7 +19,7 @@
   const handleSliderChange = (): void => {
     const val: string = sliderValue.toString();
     textValue = val;
-    changeFunc(val);
+    changeFunc(parseInt(val));
   };
 
   const handleTextChange = (e: any): void => {
@@ -28,9 +30,15 @@
     }
   };
 
+  const unsub: Function = valueStore.subscribe((value: number) => {
+    sliderValue = value;
+  });
+
   onMount(() => {
     textValue = sliderValue.toString();
   });
+
+  onDestroy(() => unsub());
 </script>
 
 <div>

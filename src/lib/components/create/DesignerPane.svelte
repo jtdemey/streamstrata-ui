@@ -47,6 +47,7 @@
     height: 100%;
     background: linear-gradient(40deg, hsl(160, 3%, 27%), hsl(160, 8%, 27%));
     box-shadow: 3px 0px 6px hsl(220, 6%, 9%);
+    z-index: 2;
   }
 
   a {

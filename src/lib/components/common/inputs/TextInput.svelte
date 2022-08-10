@@ -1,5 +1,7 @@
 <script type="ts">
   import type { ITheme } from "$lib/data/Themes";
+  import type { Writable } from "svelte/store";
+  import { onDestroy } from "svelte";
   import { adjustLightness } from "$lib/utils/ColorUtils";
 
   export let changeFunc: Function = () => false;
@@ -7,10 +9,17 @@
   export let inputName: string = "slider";
   export let label: string = "";
   export let textValue: string = "";
+  export let valueStore: Writable<string>;
 
   const handleKeydown = (e: any) => {
     changeFunc(textValue + e.key);
   };
+
+  const unsub: Function = valueStore.subscribe((value: string) => {
+    textValue = value;
+  });
+
+  onDestroy(() => unsub());
 </script>
 
 <div>

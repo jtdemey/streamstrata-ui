@@ -40,12 +40,14 @@
     left: 0;
     margin: 1rem;
     padding: 0.5rem;
+    z-index: 2;
   }
 
   button {
     padding: 0 0.75rem 0.25rem;
     border: none;
     border-radius: 0.25rem;
+    box-shadow: 0px 0px 4px #333;
     cursor: pointer;
     font-size: 2rem;
     outline: none;

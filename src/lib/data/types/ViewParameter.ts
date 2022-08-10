@@ -6,6 +6,6 @@ export interface ViewParameter {
   label: string;
   name: string;
   store: Writable<any>;
-  value: string;
+  value: any;
   visible: boolean;
 }

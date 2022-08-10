@@ -23,11 +23,12 @@
   </section>
   <div>
     <span
-      style="background: {currentTheme.secondary}; border: 1px solid {currentTheme.highlight}; color: {adjustLightness(
+      style="background: {currentTheme.secondary}; color: {adjustLightness(
         currentTheme.highlight,
         10
-      )};">{text}</span
-    >
+      )};"
+      >{text}
+    </span>
   </div>
 </a>
 

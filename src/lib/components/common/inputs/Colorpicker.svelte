@@ -1,12 +1,14 @@
 <script type="ts">
   import type { ITheme } from "$lib/data/Themes";
-  import { onMount } from "svelte";
+  import type { Writable } from "svelte/store";
+  import { onDestroy, onMount } from "svelte";
   import { adjustLightness } from "$lib/utils/ColorUtils";
 
   export let changeFunc: Function = () => false;
   export let currentTheme: ITheme;
   export let inputName: string = "colorpicker";
   export let label: string = "";
+  export let valueStore: Writable<string>;
 
   let colorValue: string = "red";
   let textValue: string = "boop";
@@ -40,10 +42,16 @@
     changeFunc(parsed);
   };
 
+  const unsub: Function = valueStore.subscribe((value: string) => {
+    colorValue = value;
+  });
+
   onMount(() => {
     colorValue = currentTheme.tertiary;
     textValue = colorValue;
   });
+
+  onDestroy(() => unsub());
 </script>
 
 <div>

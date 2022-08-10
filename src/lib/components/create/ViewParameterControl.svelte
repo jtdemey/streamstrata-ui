@@ -6,8 +6,8 @@
   import SliderInput from "../common/inputs/SliderInput.svelte";
   import TextInput from "../common/inputs/TextInput.svelte";
 
-  export let viewParameter: ViewParameter;
   export let currentTheme: ITheme;
+  export let viewParameter: ViewParameter;
 
   const handleChange = (inputVal: string): void =>
     viewParameter.store.set(inputVal);
@@ -23,6 +23,7 @@
       {currentTheme}
       inputName={viewParameter.name}
       label={viewParameter.label}
+      valueStore={viewParameter.store}
     />
   {/if}
 
@@ -32,6 +33,7 @@
       {currentTheme}
       inputName={viewParameter.name}
       label={viewParameter.label}
+      valueStore={viewParameter.store}
     />
   {/if}
 
@@ -41,6 +43,7 @@
       {currentTheme}
       inputName={viewParameter.name}
       label={viewParameter.label}
+      valueStore={viewParameter.store}
     />
   {/if}
 </div>

@@ -5,11 +5,11 @@ import { writable } from "svelte/store";
 const getInputNameFromLabel = (label: string): string =>
   label.replace(" ", "-").toLocaleLowerCase();
 
-export const genViewParameter = (
+export const genViewParameter = <T>(
   parameterType: ViewParameterTypes,
+  initialValue: T,
   label: string = "",
   name: string = "parameter-input",
-  initialValue: any = "",
   visible: boolean = true
 ): ViewParameter => {
   const inputName: string = label === "" ? name : getInputNameFromLabel(label);

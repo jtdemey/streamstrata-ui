@@ -5,5 +5,5 @@
 </script>
 
 <ViewDesigner viewParameters={SimpleBorderParameters}>
-  <SimpleBorderApp />
+  <SimpleBorderApp viewParameters={SimpleBorderParameters} />
 </ViewDesigner>
