@@ -12,7 +12,7 @@
   export let valueStore: Writable<string>;
 
   const handleKeydown = (e: any) => {
-    changeFunc(textValue + e.key);
+    changeFunc(textValue);
   };
 
   const unsub: Function = valueStore.subscribe((value: string) => {

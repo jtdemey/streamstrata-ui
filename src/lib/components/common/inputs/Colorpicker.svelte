@@ -47,7 +47,7 @@
   });
 
   onMount(() => {
-    colorValue = currentTheme.tertiary;
+    colorValue = colorValue;
     textValue = colorValue;
   });
 
