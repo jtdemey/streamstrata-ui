@@ -7,9 +7,15 @@
   import { fly } from "svelte/transition";
   import { selectedTheme } from "$lib/stores/UIStores";
   import { getTheme } from "$lib/utils/ThemeUtils";
+  import ExportPane from "./ExportPane.svelte";
+  import PaneBtns from "./PaneBtns.svelte";
   import ViewParameterControl from "./ViewParameterControl.svelte";
 
   export let viewParameters: ViewParameter[] = [];
+
+  let isExportVisible: boolean = false;
+  let paneRef: any;
+  let paneWidth: number = 367;
 
   const currentTheme: ITheme = getTheme($selectedTheme);
 
@@ -18,12 +24,23 @@
     easing: quintOut
   });
 
+  const onResize = (): void => {
+    paneWidth = paneRef.clientWidth;
+  };
+
+  const toggleExportPane = (): void => {
+    isExportVisible = !isExportVisible;
+  };
+
   onMount(() => {
+    onResize();
     $paneYPos = 0;
   });
 </script>
 
+<svelte:window on:resize={onResize}></svelte:window>
 <section
+  bind:this={paneRef}
   on:click|stopPropagation
   out:fly={{ duration: 210, easing: quintOut, y: -10 }}
   style="left: {$paneYPos}px; background: {currentTheme.primary}; color: {currentTheme.highlight};"
@@ -36,6 +53,10 @@
       </li>
     {/each}
   </ul>
+  <PaneBtns onExportClick={() => toggleExportPane()} {currentTheme} />
+  {#if isExportVisible}
+    <ExportPane {currentTheme} designerPaneWidth={paneWidth} isVisible={isExportVisible} {viewParameters} />
+  {/if}
 </section>
 
 <style>
