@@ -1,7 +1,7 @@
 <script type="ts">
   import type { ITheme } from "$lib/data/Themes";
   import { selectedTheme } from "$lib/stores/UIStores";
-  import { adjustSaturation } from "$lib/utils/ColorUtils";
+  import { adjustLightness, adjustSaturation } from "$lib/utils/ColorUtils";
   import { getTheme } from "$lib/utils/ThemeUtils";
   import HomeHeader from "$lib/components/home/HomeHeader.svelte";
 
@@ -11,7 +11,7 @@
     `linear-gradient(40deg, ${color}, ${adjustSaturation(color, 5)})`;
 </script>
 
-<main style="background: {getBackgroundGradient(currentTheme.primary)};">
+<main style="background: {getBackgroundGradient(adjustLightness(currentTheme.primary, -15))};">
   <HomeHeader {currentTheme} />
   <slot />
 </main>

@@ -4,7 +4,7 @@
   import { adjustLightness } from "$lib/utils/ColorUtils";
   import { quadOut } from "svelte/easing";
   import { fly } from "svelte/transition";
-  import { getQueryStringFromStores } from "$lib/utils/ExportUtils";
+  import { requestExport, stringifyViewParameters } from "$lib/utils/ExportUtils";
   import ActionBtn from "../common/ActionBtn.svelte";
 
   export let currentTheme: ITheme;
@@ -12,10 +12,8 @@
   export let viewParameters: ViewParameter[] = [];
 
   const onExport = (): void => {
-    const queryString: string = getQueryStringFromStores(
-      viewParameters.map((viewParameter: ViewParameter) => viewParameter.store)
-    );
-    console.log(queryString);
+    const payload: string = stringifyViewParameters(viewParameters);
+    requestExport(payload);
   };
 </script>
 
@@ -36,8 +34,9 @@
 
 <style>
   article {
-    position: relative;
-    top: -100px;
+    position: absolute;
+    top: 80px;
+    min-width: 8rem;
     padding: 1rem;
     border-radius: 0 0.3rem 0.3rem 0;
   }
