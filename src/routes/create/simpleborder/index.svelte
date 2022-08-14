@@ -4,6 +4,6 @@
   import SimpleBorderApp from "$lib/components/create/simpleborder/SimpleBorderApp.svelte";
 </script>
 
-<ViewDesigner viewParameters={SimpleBorderParameters}>
+<ViewDesigner viewName="simple-border" viewParameters={SimpleBorderParameters}>
   <SimpleBorderApp viewParameters={SimpleBorderParameters} />
 </ViewDesigner>
