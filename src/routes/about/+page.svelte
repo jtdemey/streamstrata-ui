@@ -1,6 +1,4 @@
-<script context="module">
-  export const prerender = true;
-</script>
+
 
 <script type="ts">
   import type { ITheme } from "$lib/data/themes";

@@ -1,7 +1,3 @@
-<script context="module">
-  export const prerender = true;
-</script>
-
 <script type="ts">
   import type { ITheme } from "$lib/data/Themes";
   import { Links } from "$lib/data/Links";
