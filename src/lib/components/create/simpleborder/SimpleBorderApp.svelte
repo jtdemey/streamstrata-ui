@@ -4,6 +4,7 @@
   import { tweened, type Tweened } from "svelte/motion";
   import { genElasticTweenConfig } from "$lib/utils/TweenUtils";
 
+  export let isExporting: boolean = false;
   export let viewParameters: ViewParameter[] = [];
 
   let innerColor: string = "yellow";
@@ -40,7 +41,7 @@
   $: innerStyle = `
     width: calc(100% - ${$innerWidth * 2}px);
     height: calc(100% - ${$innerWidth * 2}px);
-    background: hsl(270, 7%, 11%);
+    background: ${isExporting ? "#00cc00" : "hsl(270, 7%, 11%)"};
     margin: ${$innerWidth}px;
   `;
 </script>

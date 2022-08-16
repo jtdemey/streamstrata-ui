@@ -12,7 +12,7 @@
   export let viewParameters: ViewParameter[] = [];
 
   const onExport = (): void => {
-    const payload: string = stringifyViewParameters(viewParameters);
+    const payload: string = stringifyViewParameters("simpleborder", viewParameters);
     requestExport(payload);
   };
 </script>

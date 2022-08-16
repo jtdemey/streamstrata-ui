@@ -35,6 +35,7 @@ export const requestExport = (payload: string) =>
   });
 
 export const stringifyViewParameters = (
+  viewName: string,
   viewParameters: ViewParameter[]
 ): string => {
   const states: any = viewParameters.reduce(
@@ -42,7 +43,7 @@ export const stringifyViewParameters = (
       obj[viewParameter.name] = get(viewParameter.store);
       return obj;
     },
-    {}
+    { view: viewName }
   );
   console.log(states);
   return JSON.stringify(states);
