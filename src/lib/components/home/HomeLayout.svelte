@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import type { ITheme } from "$lib/data/Themes";
   import { selectedTheme } from "$lib/stores/UIStores";
   import { adjustLightness, adjustSaturation } from "$lib/utils/ColorUtils";

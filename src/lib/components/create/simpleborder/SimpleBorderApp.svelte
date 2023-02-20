@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import type { ViewParameter } from "$lib/data/types/ViewParameter";
   import { onDestroy } from "svelte";
   import { tweened, type Tweened } from "svelte/motion";

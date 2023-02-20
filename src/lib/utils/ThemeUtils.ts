@@ -1,4 +1,4 @@
-import { Themes, type ITheme } from "$lib/data/themes";
+import { Themes, type ITheme } from "$lib/data/Themes";
 
 export const getTheme = (themeName: string): ITheme => {
   const theme: ITheme = Themes.filter(

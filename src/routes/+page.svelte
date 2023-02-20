@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import type { ITheme } from "$lib/data/Themes";
   import { Links } from "$lib/data/Links";
   import { SectionText } from "$lib/data/home/SectionText";

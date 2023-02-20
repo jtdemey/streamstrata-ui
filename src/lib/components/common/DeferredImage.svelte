@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   export let alt: string = "An image";
   export let color: string = "#333";
   export let imgSrc: string =

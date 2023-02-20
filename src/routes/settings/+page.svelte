@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import type { ITheme } from "$lib/data/Themes";
   import { selectedTheme } from "$lib/stores/UIStores";
   import { getTheme } from "$lib/utils/ThemeUtils";

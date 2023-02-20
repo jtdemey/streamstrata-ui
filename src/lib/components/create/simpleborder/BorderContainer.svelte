@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   let innerColor: string = "yellow";
   let outerColor: string = "orange";
   let innerWidth: number = 24;

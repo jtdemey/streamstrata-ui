@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import type { ITheme } from "$lib/data/Themes";
   import { adjustLightness } from "$lib/utils/ColorUtils";
 

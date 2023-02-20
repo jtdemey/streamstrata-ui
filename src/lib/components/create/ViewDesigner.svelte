@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import type { ViewParameter } from "$lib/data/types/ViewParameter";
   import { onMount } from "svelte";
   import DesignerPane from "./DesignerPane.svelte";

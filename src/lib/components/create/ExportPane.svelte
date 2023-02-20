@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   import type { ITheme } from "$lib/data/Themes";
   import type { ViewParameter } from "$lib/data/types/ViewParameter";
   import { adjustLightness } from "$lib/utils/ColorUtils";

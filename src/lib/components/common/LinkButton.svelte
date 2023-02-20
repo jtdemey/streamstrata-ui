@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
   export let color: string = "hsl(205, 19%, 59%)";
   export let href: string = "/";
   export let text: string = "";
