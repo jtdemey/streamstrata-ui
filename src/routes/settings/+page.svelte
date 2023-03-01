@@ -11,6 +11,13 @@
 
 <HomeLayout>
   <h2 style={headerStyle}>Settings</h2>
+  <h3>Theme</h3>
+  <select>
+    <option>Mossy</option>
+    <option>Glossy</option>
+    <option>Bossy</option>
+    <option>Llama</option>
+  </select>
 </HomeLayout>
 
 <style>

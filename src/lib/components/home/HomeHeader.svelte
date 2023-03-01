@@ -1,21 +1,20 @@
 <script lang="ts">
   import type { ITheme } from "$lib/data/Themes";
+  import { selectedTheme } from "$lib/stores/UIStores";
   import { adjustLightness } from "$lib/utils/ColorUtils";
   import { getTheme } from "$lib/utils/ThemeUtils";
 
-  export let currentTheme: ITheme = getTheme("Sunset Cream");
+  export let currentTheme: ITheme = getTheme($selectedTheme);
 </script>
 
 <header>
   <a href="/">
     <h1
       style="
-        background: {currentTheme.secondary};
-        border: 1px solid {currentTheme.highlight};
         color: {currentTheme.highlight}
       "
     >
-      Lamina<br />Llama
+      Streamstrata
     </h1>
   </a>
   <div id="right">
@@ -58,16 +57,17 @@
     style="
       background: {currentTheme.quaternary};
       color: {adjustLightness(currentTheme.primary, -16)}
-    ">Lamina Llama works best on a widescreen display.</span
+    ">Streamstrata is designed for a widescreen display.</span
   >
 </header>
 
 <style>
   header {
     display: flex;
+    justify-content: space-evenly;
     padding: 0 2rem;
   }
-  
+
   a {
     text-decoration: none;
   }
@@ -75,14 +75,12 @@
   h1 {
     width: fit-content;
     margin: 0;
-    padding: 0.5rem 1.5rem;
+    padding: 1.85rem;
     text-shadow: 0px -6px hsl(205, 19%, 59%);
-    background: hsl(205, 19%, 35%);
-    border-radius: 0 0 0 1rem;
+    border-radius: 1rem;
     color: hsl(203, 45%, 90%);
     font-family: "Nunito", sans-serif;
     font-size: 5.05rem;
-    line-height: 4.5rem;
     text-align: left;
   }
 
@@ -92,7 +90,7 @@
   }
 
   h2 {
-    width: fit-content;
+    width: calc(100% - 1rem);
     height: fit-content;
     margin: 0;
     padding: 0.5rem;
@@ -116,7 +114,6 @@
     height: calc(3rem + 2px);
     margin: 0;
     padding: 0;
-    border-radius: 0 0 1rem 0;
     list-style-type: none;
   }
 
@@ -136,6 +133,11 @@
   @media all and (max-width: 600px) {
     header {
       flex-flow: column;
+    }
+
+    h1 {
+      padding: 1rem 0;
+      font-size: 3rem;
     }
 
     #mobile-blurb {

@@ -20,10 +20,14 @@ export const getQueryStringFromStores = (stores: Writable<any>[]): string => {
       qs += "&";
     }
   });
-  return env.PUBLIC_EXPORT_URI + qs;
+  return env.PUBLIC_EXPORT_URI || "" + qs;
 };
 
-export const requestExport = (payload: string) =>
+export const requestExport = (payload: string) => {
+  if (!env.PUBLIC_EXPORT_URI) {
+    console.error("No public export URI found in settings");
+    return;
+  }
   fetch(env.PUBLIC_EXPORT_URI, {
     method: "post",
     headers: {
@@ -33,6 +37,7 @@ export const requestExport = (payload: string) =>
     },
     body: payload
   });
+};
 
 export const stringifyViewParameters = (
   viewName: string,
@@ -40,10 +45,10 @@ export const stringifyViewParameters = (
 ): string => {
   const states: any = viewParameters.reduce(
     (obj: any, viewParameter: ViewParameter) => {
-      obj[viewParameter.name] = get(viewParameter.store);
+      obj.parameters[viewParameter.name] = get(viewParameter.store);
       return obj;
     },
-    { view: viewName }
+    { parameters: {}, view: viewName }
   );
   console.log(states);
   return JSON.stringify(states);

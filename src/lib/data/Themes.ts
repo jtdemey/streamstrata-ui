@@ -25,7 +25,15 @@ const genTheme = (
 
 export const Themes: ITheme[] = [
   genTheme(
-    "Sunset Cream",
+    "Mossy",
+    "hsl(37, 9%, 29%)",
+    "hsl(126, 13%, 50%)",
+    "hsl(121, 25%, 57%)",
+    "hsl(127, 31%, 61%)",
+    "hsl(124, 46%, 70%)"
+  ),
+  genTheme(
+    "Llama",
     "hsl(309, 11%, 24%)",
     "hsl(25, 18%, 44%)",
     "hsl(25, 45%, 65%)",

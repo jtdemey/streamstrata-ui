@@ -1,10 +1,11 @@
 <script lang="ts">
   import type { ITheme } from "$lib/data/Themes";
+  import { selectedTheme } from "$lib/stores/UIStores";
   import { adjustLightness } from "$lib/utils/ColorUtils";
   import { getTheme } from "$lib/utils/ThemeUtils";
   import DeferredImage from "$lib/components/common/DeferredImage.svelte";
 
-  export let currentTheme: ITheme = getTheme("Sunset Cream");
+  export let currentTheme: ITheme = getTheme($selectedTheme);
   export let href: string = "/";
   export let imgAlt: string = "A placeholder image";
   export let imgSrc: string = "/previews/placeholder.webp";
@@ -52,7 +53,6 @@
   span {
     min-width: 50%;
     padding: 0 0.4rem 0.2rem;
-    border-radius: 0 0 1rem 1rem;
     font-size: 1.1rem;
     text-align: center;
   }
