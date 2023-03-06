@@ -26,7 +26,7 @@
     const inputInt: number = parseInt(textValue + e.key);
     if (inputInt >= min && inputInt <= max) {
       sliderValue = inputInt;
-      changeFunc(textValue);
+      changeFunc(inputInt);
     }
   };
 

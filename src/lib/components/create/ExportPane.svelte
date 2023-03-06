@@ -39,27 +39,29 @@
   left: {designerPaneWidth}px;"
   transition:fly={{ duration: 180, easing: quadOut, x: -20 }}
 >
-  <SliderInput
-    changeFunc={handleSliderChange(width)}
-    {currentTheme}
-    inputName="width"
-    label="Width"
-    max={4096}
-    min={0}
-    valueStore={width}
-  />
-  <SliderInput
-    changeFunc={handleSliderChange(height)}
-    {currentTheme}
-    inputName="height"
-    label="Height"
-    max={2160}
-    min={0}
-    valueStore={height}
-  />
+  <section>
+    <SliderInput
+      changeFunc={handleSliderChange(width)}
+      {currentTheme}
+      inputName="width"
+      label="Width"
+      max={4096}
+      min={0}
+      valueStore={width}
+    />
+    <SliderInput
+      changeFunc={handleSliderChange(height)}
+      {currentTheme}
+      inputName="height"
+      label="Height"
+      max={2160}
+      min={0}
+      valueStore={height}
+    />
+  </section>
   <ActionBtn
     backgroundColor={adjustLightness(currentTheme.tertiary, -25)}
-    clickFunc={() => onExport()}
+    clickFunc={() => onExport($height, $width)}
     {currentTheme}
     text="Export"
   />
@@ -72,5 +74,9 @@
     min-width: 8rem;
     padding: 1rem;
     border-radius: 0 0.3rem 0.3rem 0;
+  }
+
+  section {
+    padding: 1rem 0.5rem 2rem;
   }
 </style>

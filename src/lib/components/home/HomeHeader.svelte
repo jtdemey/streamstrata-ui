@@ -76,7 +76,7 @@
     width: fit-content;
     margin: 0;
     padding: 1.85rem;
-    text-shadow: 0px -6px hsl(205, 19%, 59%);
+    text-shadow: 0px 3px hsl(205, 19%, 59%);
     border-radius: 1rem;
     color: hsl(203, 45%, 90%);
     font-family: "Nunito", sans-serif;

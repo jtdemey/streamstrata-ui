@@ -12,15 +12,14 @@
 <section>
   <h3
     style="
-      background: {currentTheme.quaternary};
-      color: {adjustLightness(currentTheme.primary, -8)};"
+      border-top: 8px solid {currentTheme.tertiary};
+      color: {currentTheme.highlight}"
   >
     {header}
   </h3>
   <article
     style="
-    background: {currentTheme.tertiary};
-    color: {adjustLightness(adjustSaturation(currentTheme.primary, -20), -20)}"
+      color: {currentTheme.quaternary}"
   >
     {body}
   </article>
@@ -39,13 +38,14 @@
     width: fit-content;
     margin: 0;
     padding: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     transform: translate(0.75rem, 0.5rem);
   }
 
   article {
     height: 1rem;
     padding: 1rem;
+    font-size: 1.1rem;
     line-height: 1rem;
   }
 </style>

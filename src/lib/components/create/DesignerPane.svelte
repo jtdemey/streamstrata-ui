@@ -38,10 +38,11 @@
   });
 </script>
 
-<svelte:window on:resize={onResize}></svelte:window>
+<svelte:window on:resize={onResize} />
 <section
   bind:this={paneRef}
   on:click|stopPropagation
+  on:keydown|stopPropagation
   out:fly={{ duration: 210, easing: quintOut, y: -10 }}
   style="left: {$paneYPos}px; background: {currentTheme.primary}; color: {currentTheme.highlight};"
 >
@@ -55,7 +56,11 @@
   </ul>
   <PaneBtns onExportClick={() => toggleExportPane()} {currentTheme} />
   {#if isExportVisible}
-    <ExportPane {currentTheme} designerPaneWidth={paneWidth} isVisible={isExportVisible} {viewParameters} />
+    <ExportPane
+      {currentTheme}
+      designerPaneWidth={paneWidth}
+      {viewParameters}
+    />
   {/if}
 </section>
 
