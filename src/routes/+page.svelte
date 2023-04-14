@@ -12,16 +12,18 @@
 </script>
 
 <HomeLayout>
-  {#each SectionText as sectionText, i}
-    <SectionHeader {currentTheme} {...sectionText} />
-    <ul>
-      {#if Links[i]}
-        {#each Links[i] as link}
-          <ViewLinkCard {...link} />
-        {/each}
-      {/if}
-    </ul>
-  {/each}
+  <div>
+    {#each SectionText as sectionText, i}
+      <SectionHeader {currentTheme} {...sectionText} />
+      <ul>
+        {#if Links[i]}
+          {#each Links[i] as link}
+            <ViewLinkCard {...link} />
+          {/each}
+        {/if}
+      </ul>
+    {/each}
+  </div>
 </HomeLayout>
 
 <style>
@@ -30,5 +32,12 @@
     margin: 0;
     padding: 0 2rem;
     list-style-type: none;
+  }
+
+  div {
+    display: grid;
+    grid-gap: 4rem 0;
+    grid-template-columns: 1fr 2fr;
+    margin: 2rem 0;
   }
 </style>

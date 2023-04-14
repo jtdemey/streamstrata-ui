@@ -23,11 +23,7 @@
     />
   </section>
   <div>
-    <span
-      style="background: {currentTheme.secondary}; color: {adjustLightness(
-        currentTheme.highlight,
-        10
-      )};"
+    <span style="color: {adjustLightness(currentTheme.highlight, 10)};"
       >{text}
     </span>
   </div>

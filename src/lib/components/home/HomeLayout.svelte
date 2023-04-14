@@ -12,13 +12,15 @@
 </script>
 
 <main style="background: {getBackgroundGradient(adjustLightness(currentTheme.primary, -15))};">
-  <HomeHeader {currentTheme} />
-  <slot />
+  <div style="border: 4px ridge {currentTheme.secondary}">
+    <HomeHeader {currentTheme} />
+    <slot />
+  </div>
 </main>
 
 <style>
   main {
-    position: fixed;
+    position: absolute;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -27,5 +29,11 @@
     padding: 0;
     background: linear-gradient(40deg, hsl(160, 3%, 27%), hsl(160, 8%, 27%));
     font-family: "Nunito", sans-serif;
+  }
+
+  div {
+    width: 70%;
+    margin: 8rem auto;
+    padding: 0.35rem;
   }
 </style>

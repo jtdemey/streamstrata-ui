@@ -64,7 +64,7 @@
 <style>
   header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 0 2rem;
   }
 
