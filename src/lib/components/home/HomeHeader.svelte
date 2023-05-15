@@ -14,7 +14,7 @@
         color: {currentTheme.highlight}
       "
     >
-      Streamstrata
+      streamstrata
     </h1>
   </a>
   <div id="right">

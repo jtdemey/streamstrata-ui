@@ -36,7 +36,13 @@ export const requestExport = (payload: string) => {
       "Content-Type": "application/json"
     },
     body: payload
-  });
+  })
+    .then(res => res.json())
+    .then(res => {
+      if (!res.status || res.status === 404)
+        window.alert("Something went wrong; please try again later.");
+      window.location.href = `${env.PUBLIC_CLIENT_URI}render`
+    });
 };
 
 export const stringifyViewParameters = (
@@ -50,6 +56,5 @@ export const stringifyViewParameters = (
     },
     { parameters: {}, view: viewName }
   );
-  console.log(states);
   return JSON.stringify(states);
 };

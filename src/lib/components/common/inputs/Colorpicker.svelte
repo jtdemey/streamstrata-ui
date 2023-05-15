@@ -12,6 +12,7 @@
 
   let colorValue: string = "red";
   let textValue: string = "boop";
+  let transparencyValue: number = 100;
 
   const handleColorChange = (): void => {
     textValue = colorValue;
@@ -54,9 +55,9 @@
   onDestroy(() => unsub());
 </script>
 
-<div>
+<div id="container">
   <label for={inputName}>{label}</label>
-  <div id="input-area">
+  <div class="input-area">
     <label id="color-circle" style="background: {colorValue};">
       <input
         bind:value={colorValue}
@@ -77,14 +78,24 @@
       type="text"
     />
   </div>
+  <div class="input-area" id="transparency-area">
+    <label for="transparency">Transparency: {transparencyValue}%</label>
+    <input
+      bind:value={transparencyValue}
+      name="transparency"
+      type="range"
+      min="0"
+      max="100"
+    />
+  </div>
 </div>
 
 <style>
-  div {
+  #container {
     margin: 0 0 0.5rem;
   }
 
-  #input-area {
+  .input-area {
     display: flex;
   }
 
@@ -100,12 +111,10 @@
   }
 
   input {
-    width: 80%;
     border: none;
     font-family: "Nunito", sans-serif;
     font-size: 1rem;
     outline: none;
-    -webkit-appearance: none;
   }
 
   input::-webkit-color-swatch-wrapper {
@@ -117,9 +126,22 @@
   }
 
   #text-input {
-    width: calc(80% - 0.4rem);
+    width: 9rem;
     margin-top: 0.5rem;
     padding: 0.25rem;
     border-radius: 0.5rem;
+  }
+
+  #transparency-area {
+    flex-flow: column;
+    padding-top: 1rem;
+  }
+
+  #transparency-area > label {
+    padding-right: 0.5rem;
+  }
+
+  #transparency-area > input {
+    width: 12rem;
   }
 </style>

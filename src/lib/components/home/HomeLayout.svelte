@@ -12,7 +12,7 @@
 </script>
 
 <main style="background: {getBackgroundGradient(adjustLightness(currentTheme.primary, -15))};">
-  <div style="border: 4px ridge {currentTheme.secondary}">
+  <div>
     <HomeHeader {currentTheme} />
     <slot />
   </div>
@@ -32,7 +32,7 @@
   }
 
   div {
-    width: 70%;
+    width: 80%;
     margin: 8rem auto;
     padding: 0.35rem;
   }

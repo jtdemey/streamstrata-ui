@@ -7,9 +7,11 @@ export const genViewParameter = <T>(
   initialValue: T,
   label: string = "",
   name: string = "parameter-input",
-  visible: boolean = true
+  visible: boolean = true,
+  attributes: object = {}
 ): ViewParameter => {
   return {
+    attributes,
     parameterType,
     label,
     name,

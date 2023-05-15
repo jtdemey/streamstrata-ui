@@ -29,7 +29,7 @@
 <style>
   ul {
     display: flex;
-    margin: 0;
+    margin: 2.5rem 0 0;
     padding: 0 2rem;
     list-style-type: none;
   }

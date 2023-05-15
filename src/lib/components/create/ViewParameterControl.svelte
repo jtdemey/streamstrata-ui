@@ -29,6 +29,7 @@
 
   {#if isType(ViewParameterTypes.Slider)}
     <SliderInput
+      attributes={viewParameter.attributes}
       changeFunc={handleChange}
       {currentTheme}
       inputName={viewParameter.name}

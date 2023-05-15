@@ -46,7 +46,7 @@
   out:fly={{ duration: 210, easing: quintOut, y: -10 }}
   style="left: {$paneYPos}px; background: {currentTheme.primary}; color: {currentTheme.highlight};"
 >
-  <a href="/"><h3>🠔 Back home</h3></a>
+  <a href="/"><h3>← Back home</h3></a>
   <ul>
     {#each viewParameters as viewParameter}
       <li>

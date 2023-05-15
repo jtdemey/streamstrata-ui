@@ -4,6 +4,7 @@
   import { onDestroy, onMount } from "svelte";
   import { adjustLightness } from "$lib/utils/ColorUtils";
 
+  export let attributes: any = {};
   export let changeFunc: Function = () => false;
   export let currentTheme: ITheme;
   export let inputName: string = "slider";
@@ -39,6 +40,12 @@
   });
 
   onDestroy(() => unsub());
+
+  $: {
+    console.log(parseInt(attributes.min));
+    // min = parseInt(attributes.min) ?? min;
+    // min = parseInt(attributes.max) ?? max;
+  }
 </script>
 
 <div>
@@ -71,6 +78,7 @@
   }
 
   input {
+    width: 80%;
     margin-top: 0.5rem;
     border: none;
     font-family: "Nunito", sans-serif;
