@@ -20,5 +20,9 @@ export const SectionText: ISectionText[] = [
   genSectionText(
     "Panes",
     "Make rectangles with flair: perfect for chat backgrounds, webcam frames, or a backdrop for text."
+  ),
+  genSectionText(
+    "Backgrounds",
+    "Tweak animated backgrounds for optimal visual stimulation."
   )
 ];

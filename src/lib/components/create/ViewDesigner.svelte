@@ -6,21 +6,9 @@
 
   export let viewParameters: ViewParameter[] = [];
 
-  let isRecording: boolean = false;
   let paneVisible: boolean = false;
   let openPaneBtnVisible: boolean = false;
   let showBtnTimeout: any;
-
-  let mainBackgroundColor: string = "hsl(220, 16%, 14%)";
-
-  const checkForRecordingMode = () => {
-    const params: any = new Proxy(new URLSearchParams(window.location.search), {
-      get: (searchParams, prop) => searchParams.get(prop.toString()),
-    });
-    if (params.r === "1") {
-      isRecording = true;
-    }
-  };
 
   const onBtnClick = (): void => {
     paneVisible = true;
@@ -49,15 +37,12 @@
   };
 
   onMount(() => {
-    checkForRecordingMode();
     showBtn();
   });
-
-  $: mainBackgroundColor = isRecording ? "#00ff00" : "hsl(220, 16%, 14%)";
 </script>
 
 <svelte:window on:click={onScreenClick} on:keydown={onKeypress} />
-<main style="background: {mainBackgroundColor}">
+<main>
   {#if paneVisible}
     <DesignerPane {viewParameters} />
   {/if}
@@ -65,7 +50,7 @@
   {#if !paneVisible}
     <OpenDesignerBtn clickFunc={onBtnClick} isVisible={openPaneBtnVisible} />
   {/if}
-  <slot {mainBackgroundColor} />
+  <slot />
 </main>
 
 <style>

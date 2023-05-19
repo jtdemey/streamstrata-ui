@@ -14,7 +14,7 @@
         color: {currentTheme.highlight}
       "
     >
-      streamstrata
+      stream gleam
     </h1>
   </a>
   <div id="right">

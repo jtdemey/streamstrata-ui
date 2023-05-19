@@ -2,6 +2,15 @@ import type { ViewParameter } from "$lib/data/types/ViewParameter";
 import { env } from "$env/dynamic/public";
 import { get, type Writable } from "svelte/store";
 
+export const checkForExportParam = (): boolean => {
+  const params: any = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop.toString()),
+  });
+  return params.r === "1"
+    ? true
+    : false;
+};
+
 export const getQueryStringFromStores = (stores: Writable<any>[]): string => {
   const storeValues: any[] = stores.map((store: Writable<any>) => get(store));
   if (storeValues.length > 26) {

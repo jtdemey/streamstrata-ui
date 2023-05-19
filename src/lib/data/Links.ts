@@ -26,5 +26,15 @@ export const Links: ILink[][] = [
       "/placeholder.webp",
       "Test View"
     )
-  ]
+  ],
+  [],
+  [],
+  [
+    genLink(
+      "/create/rectangles",
+      "PS2 Menu-like rectangles",
+      "/placeholder.webp",
+      "Rectangular Prisms"
+    )
+  ],
 ];

@@ -1,12 +1,13 @@
 <script lang="ts">
   import type { ViewParameter } from "$lib/data/types/ViewParameter";
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import { tweened, type Tweened } from "svelte/motion";
+  import { checkForExportParam } from "$lib/utils/ExportUtils";
   import { genElasticTweenConfig } from "$lib/utils/TweenUtils";
 
-  export let isExporting: boolean = false;
   export let viewParameters: ViewParameter[] = [];
 
+  let isExporting: boolean = false;
   let innerColor: string = "yellow";
   let outerColor: string = "#333";
   let innerWidth: Tweened<number> = tweened(24, genElasticTweenConfig());
@@ -23,6 +24,10 @@
         case "outer-width": $outerWidth = value; break;
       }
     }));
+  });
+
+  onMount(() => {
+    isExporting = checkForExportParam();
   });
 
   onDestroy(() => {
