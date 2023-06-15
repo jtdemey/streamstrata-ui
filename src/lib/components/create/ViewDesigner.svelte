@@ -4,23 +4,31 @@
   import DesignerPane from "./DesignerPane.svelte";
   import OpenDesignerBtn from "./OpenDesignerBtn.svelte";
 
+  export let data;
+  console.log(data);
   export let viewParameters: ViewParameter[] = [];
 
   let paneVisible: boolean = false;
   let openPaneBtnVisible: boolean = false;
+  let shouldShowButton: boolean = true;
   let showBtnTimeout: any;
+
+  if (data.exportParams) {
+    shouldShowButton = false;
+  }
 
   const onBtnClick = (): void => {
     paneVisible = true;
   };
 
   const onKeypress = (e: any): void => {
-    if (e.key === "`") {
+    if (["`", "Tab", " ", "f"].some(char => char === e.key)) {
       paneVisible = !paneVisible;
     }
   };
 
   const showBtn = (): void => {
+    if (!shouldShowButton) return;
     openPaneBtnVisible = true;
     if (showBtnTimeout) clearTimeout(showBtnTimeout);
     showBtnTimeout = setTimeout(() => {
@@ -50,6 +58,7 @@
   {#if !paneVisible}
     <OpenDesignerBtn clickFunc={onBtnClick} isVisible={openPaneBtnVisible} />
   {/if}
+  <input type="hidden" name="test input" id="test" />
   <slot />
 </main>
 

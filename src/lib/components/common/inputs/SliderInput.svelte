@@ -42,9 +42,12 @@
   onDestroy(() => unsub());
 
   $: {
-    console.log(parseInt(attributes.min));
-    // min = parseInt(attributes.min) ?? min;
-    // min = parseInt(attributes.max) ?? max;
+    if (attributes.min) {
+      min = parseInt(attributes.min);
+    }
+    if (attributes.max) {
+      max = parseInt(attributes.max);
+    }
   }
 </script>
 

@@ -32,6 +32,15 @@ export const getQueryStringFromStores = (stores: Writable<any>[]): string => {
   return env.PUBLIC_EXPORT_URI || "" + qs;
 };
 
+export const populateViewParameters = (
+  retrievedParameters: ViewParameter[],
+  currentParameters: ViewParameter[]
+): ViewParameter[] => currentParameters.map((parameter: ViewParameter) => {
+  const retrievedParam: ViewParameter | undefined =
+    retrievedParameters.find((p: ViewParameter) => p.name === parameter.name);
+  return retrievedParam ?? parameter;
+});
+
 export const requestExport = (payload: string) => {
   if (!env.PUBLIC_EXPORT_URI) {
     console.error("No public export URI found in settings");
@@ -50,6 +59,7 @@ export const requestExport = (payload: string) => {
     .then(res => {
       if (!res.status || res.status === 404)
         window.alert("Something went wrong; please try again later.");
+      console.log(res);
       window.location.href = `${env.PUBLIC_CLIENT_URI}render`
     });
 };
