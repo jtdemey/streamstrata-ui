@@ -31,10 +31,10 @@ export const Links: ILink[][] = [
   [],
   [
     genLink(
-      "/create/rectangles",
-      "PS2 Menu-like rectangles",
+      "/create/pillars",
+      "PS2 Menu-like pillars",
       "/placeholder.webp",
-      "Rectangular Prisms"
+      "Rectangular Pillars"
     )
   ],
 ];

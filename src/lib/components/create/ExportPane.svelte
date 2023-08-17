@@ -35,29 +35,35 @@
 
 <article
   style="
-  background: {currentTheme.primary};
-  left: {designerPaneWidth}px;"
+    background: {currentTheme.primary};
+    left: {designerPaneWidth}px;"
   transition:fly={{ duration: 180, easing: quadOut, x: -20 }}
 >
   <section>
-    <SliderInput
-      changeFunc={handleSliderChange(width)}
-      {currentTheme}
-      inputName="width"
-      label="Width"
-      max={4096}
-      min={0}
-      valueStore={width}
-    />
-    <SliderInput
-      changeFunc={handleSliderChange(height)}
-      {currentTheme}
-      inputName="height"
-      label="Height"
-      max={2160}
-      min={0}
-      valueStore={height}
-    />
+    <ul>
+      <li style="border-left: 1px solid {currentTheme.highlight};">
+        <SliderInput
+          changeFunc={handleSliderChange(width)}
+          {currentTheme}
+          inputName="width"
+          label="Width"
+          max={4096}
+          min={0}
+          valueStore={width}
+        />
+      </li>
+      <li style="border-left: 1px solid {currentTheme.highlight};">
+        <SliderInput
+          changeFunc={handleSliderChange(height)}
+          {currentTheme}
+          inputName="height"
+          label="Height"
+          max={2160}
+          min={0}
+          valueStore={height}
+        />
+      </li>
+    </ul>
   </section>
   <ActionBtn
     backgroundColor={adjustLightness(currentTheme.tertiary, -25)}
@@ -71,12 +77,23 @@
   article {
     position: absolute;
     top: 80px;
-    min-width: 8rem;
+    min-width: 15rem;
     padding: 1rem;
     border-radius: 0 0.3rem 0.3rem 0;
   }
 
   section {
     padding: 1rem 0.5rem 2rem;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  ul > li {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
   }
 </style>

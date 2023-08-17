@@ -33,12 +33,13 @@ export const getQueryStringFromStores = (stores: Writable<any>[]): string => {
 };
 
 export const populateViewParameters = (
-  retrievedParameters: ViewParameter[],
+  retrievedParameters: any,
   currentParameters: ViewParameter[]
-): ViewParameter[] => currentParameters.map((parameter: ViewParameter) => {
-  const retrievedParam: ViewParameter | undefined =
-    retrievedParameters.find((p: ViewParameter) => p.name === parameter.name);
-  return retrievedParam ?? parameter;
+): void => currentParameters.forEach((parameter: ViewParameter) => {
+  const retrievedValue: any = retrievedParameters[parameter.name];
+  if (retrievedValue) {
+    parameter.store.set(retrievedValue);
+  }
 });
 
 export const requestExport = (payload: string) => {

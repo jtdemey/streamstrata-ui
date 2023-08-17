@@ -7,6 +7,5 @@ export interface ViewParameter {
   label: string;
   name: string;
   store: Writable<any>;
-  value: any;
   visible: boolean;
 }

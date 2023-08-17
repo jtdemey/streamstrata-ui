@@ -16,14 +16,24 @@
   const unsubFuncs: Function[] = [];
 
   viewParameters.forEach((vp: ViewParameter) => {
-    unsubFuncs.push(vp.store.subscribe((value: any) => {
-      switch (vp.name) {
-        case "inner-color": innerColor = value; break;
-        case "inner-width": $innerWidth = value; break;
-        case "outer-color": outerColor = value; break;
-        case "outer-width": $outerWidth = value; break;
-      }
-    }));
+    unsubFuncs.push(
+      vp.store.subscribe((value: any) => {
+        switch (vp.name) {
+          case "inner-color":
+            innerColor = value;
+            break;
+          case "inner-width":
+            $innerWidth = value;
+            break;
+          case "outer-color":
+            outerColor = value;
+            break;
+          case "outer-width":
+            $outerWidth = value;
+            break;
+        }
+      })
+    );
   });
 
   onMount(() => {
@@ -53,9 +63,7 @@
 
 <div id="container" style="background: {outerColor};">
   <div id="outer-rect" style={outerStyle}>
-    <div id="inner-rect" style={innerStyle}>
-      
-    </div>
+    <div id="inner-rect" style={innerStyle} />
   </div>
 </div>
 
@@ -71,7 +79,8 @@
     padding: 0;
   }
 
-  #outer-rect, #inner-rect {
+  #outer-rect,
+  #inner-rect {
     position: absolute;
     top: 0;
     left: 0;
